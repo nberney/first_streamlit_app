@@ -50,7 +50,8 @@ streamlit.dataframe(my_data_rows)
 
 # Add a new fruit to the database
 add_fruit  = streamlit.text_input('What fruit would you like to add?', 'Eg. Peach?')
-my_cur.execute("insert into fruit_load_list values (" + add_fruit + ")")
+execution_string = "insert into fruit_load_list values (" + add_fruit + ")"
+my_cur.execute(execution_string)
 
 my_cur.execute("SELECT * from fruit_load_list")
 my_data_rows = my_cur.fetchall()
